@@ -1,1 +1,8 @@
 /* add custom styles */
+.movie-render{
+  border: solid thin gray;
+  border-radius: 10px;
+  padding: 15px;
+  width:300px;
+  margin-bottom: 15px;
+}

@@ -1,0 +1,102 @@
+
+
+
+<div class='container'>
+
+  <div class="row" align="center">
+
+  <h1>Angular OMDb API Search</h1>
+    <div class="col-xs-2 col-xs-offset-5">
+
+  <form>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Enter a movie by title</label>
+      <input ng-model="movieQuery" type="text" class="form-control" placeholder="Enter Movie">
+    </div>
+    <button ng-click="getMovies(); resultsDiv = !resultsDiv" type="submit" class="btn btn-primary">Search <span class="glyphicon glyphicon-arrow-right" aria-hidden="true"></span></button>
+  </form>
+
+
+    </div>
+  </div>
+
+</div>
+<hr>
+
+<div ng-show="resultsDiv">
+
+  <h3>Search Results </h3>
+
+    <div class="movie-render" ng-repeat="movie in moviesData" ng-click="showMovie()">
+
+        <p>
+        <!-- <a ng-href='http://www.omdbapi.com/?i={{movie.imdbID}}&plot=full&r=json'> -->
+        <strong>Title:{{ movie.Title }}</strong>
+        </a>
+        </p>
+        <p>Year:{{ movie.Year }}</p>
+    </div>
+
+</div>
+
+<div ng-show="singleMovie">
+  <h3>{{ movieData.Title }}</h3>
+
+  <img src="{{ movieData.Poster }}"/>
+
+  <p><strong>Staring: </strong> {{ movieData.Actors }}</p>
+
+  <p>{{ movieData.Plot }}</p>
+
+  <h4>Additional Details</h4>
+
+  <p><strong>Awards:</strong>
+  {{ movieData.Awards }}</p>
+
+  <p><strong>Country:</strong>
+  {{ movieData.Country }}</p>
+
+  <p><strong>Director:</strong>
+  {{ movieData.Director }}</p>
+
+  <p><strong>Genre:</strong>
+  {{ movieData.Genre }}</p>
+
+  <p><strong>Language:</strong>
+  {{ movieData.Language }}</p>
+
+  <p><strong>Metascore:</strong>
+  {{ movieData.Metascore }}</p>
+
+  <p><strong>Rated:</strong>
+  {{ movieData.Rated }}</p>
+
+  <p><strong>Runtime:</strong>
+  {{ movieData.Runtime }}</p>
+
+  <p><strong>Released:</strong>
+  {{ movieData.Country }}</p>
+
+  <p><strong>Title:</strong>
+  {{ movieData.Title }}</p>
+
+  <p><strong>Writer:</strong>
+  {{ movieData.Writer }}</p>
+
+  <p><strong>Year:</strong>
+  {{ movieData.Year }}</p>
+
+  <p><strong>imbdRating:</strong>
+  {{ movieData.imdbRating }}</p>
+
+  <p><strong>imbdVotes:</strong>
+  {{ movieData.imdbVotes }}</p>
+
+
+
+
+
+
+
+</div>
+
