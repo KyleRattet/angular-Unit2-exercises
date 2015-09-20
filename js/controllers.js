@@ -70,12 +70,13 @@ app.controller('ContactController', ["$scope", "$http","ContactList", function($
 
     };
 
-  $scope.deleteContact = function(){
-    // console.log(index);
-      ContactList.removeContact($scope);
-      console.log($scope.contacts)
+  $scope.deleteContact = function($index, contact){
 
-    };
+    $scope.contacts.splice($index, 1);
+
+};
+
+
 }]);
 
 //view single contact controller, uses same Contact list service

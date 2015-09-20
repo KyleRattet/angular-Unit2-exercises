@@ -43,10 +43,7 @@ app.factory('ContactList', function() {
     $scope.findContact = name;
   };
 
-  ContactList.removeContact = function($scope, index) {
-   var contact_to_delete = $scope.contacts[index];
-    $scope.contacts.splice(index, 1);
-  };
+
 
   ContactList.singleContact = function($scope, $http, id){
     // var useName;
