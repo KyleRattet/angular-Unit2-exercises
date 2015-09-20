@@ -1,17 +1,33 @@
+//implicit notation
+// var app = angular.module('myApp', ['ngRoute']);
+
+// app.config(function($routeProvider) {
+//     $routeProvider
+//       .when('/movies', {
+//         templateUrl: 'partials/movies.html',
+//         controller: 'MovieController'
+//       })
+//       .when('/contacts', {
+//         templateUrl: 'partials/contacts.html',
+//         controller: 'ContactController'
+//       })
+// });
+
+//inline array notation
+
 var app = angular.module('myApp', ['ngRoute']);
 
-app.controller('myController', function($scope) {
-  $scope.greeting = "Hello World!";
-});
-
-app.config(function($routeProvider) {
+app.config(['$routeProvider', function($routeProvider) {
     $routeProvider
       .when('/movies', {
         templateUrl: 'partials/movies.html',
         controller: 'MovieController'
       })
-});
-
+      .when('/contacts', {
+        templateUrl: 'partials/contacts.html',
+        controller: 'ContactController'
+      })
+}]);
 
 
 
