@@ -1,3 +1,46 @@
-{{ greeting }}
 
- {{contactData}}
+<!-- add new contact form-->
+<div>
+<h3>Add New Contact</h3>
+<form>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" ng-model="name" id="name" placeholder="name">
+  </div>
+  <div class="form-group">
+    <label for="team">Team</label>
+    <input type="text" class="form-control" id="team" placeholder="Team" ng-model="team">
+  </div>
+  <div class="form-group">
+    <label for="location">Location</label>
+    <input type="text" class="form-control" id="location" placeholder="Location" ng-model="location">
+  </div>
+  <button ng-click="newContact()" type="submit" class="btn btn-default">Add Contact</button>
+</form>
+
+</div>
+
+ <table class="table">
+
+    <thead>
+
+      <tr>
+        <th>Name</th>
+        <th>Team</th>
+        <th>Location</th>
+        <th>Delete</th>
+      </tr>
+
+    <tr ng-repeat="contact in contacts | filter: findContact">
+   <!--  link create to each contact page -->
+    <td><a href = '#/contact/{{contact.id}}'> {{contact.name}}</a></td>
+    <td> {{contact.team}}</td>
+    <td> {{contact.location}}</td>
+    <td><button ng-click="deleteContact($index)">Delete</button></td>
+    </tr>
+
+  </table>
+  <label for="search">Search Contacts</label>
+   <input type="text" class="form-control" id="findContact" placeholder="Search Contacts" ng-model="findContact">
+
+

@@ -27,6 +27,11 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'partials/contacts.html',
         controller: 'ContactController'
       })
+       .when('/contact/:id', {
+        templateUrl: 'partials/singleContact.html',
+        controller: 'SingleContactController'
+      })
+
 }]);
 
 
