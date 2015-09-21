@@ -31,6 +31,10 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'partials/singleContact.html',
         controller: 'SingleContactController'
       })
+       .when('/shop', {
+        templateUrl: 'partials/shopMain.html',
+        controller: 'MainShoppingController'
+      })
 
 }]);
 

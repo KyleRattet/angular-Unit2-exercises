@@ -6,3 +6,25 @@
   width:300px;
   margin-bottom: 15px;
 }
+
+.tea-title {
+  color: #FF0000;
+  font-style: italic;
+}
+
+#sort-by-price {
+  float: right;
+}
+
+.main-controller {
+  border: solid thin gray;
+  background-color: red;
+}
+
+/*.tea-render {
+  border: solid thin gray;
+}*/
+/*
+.tea-image {
+  border: solid thin gray;
+}*/

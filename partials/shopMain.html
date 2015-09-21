@@ -1,0 +1,62 @@
+<h1 class="tea-title">Welcome to MEAN Tea!</h1>
+
+
+
+<div class="main-container">
+
+<!-- top row for rendering each tea -->
+  <div class="row">
+
+    <div class="col-xs-4">
+      <h4>Tea</h4>
+    </div>
+
+    <div class="col-xs-8">
+      <h4>Information<span id="sort-by-price">Sort By Price:<select class="form-control">
+          <option></option>
+          <option value='high'>High</option>
+          <option value='low'>Low</option>
+        </select></span>
+      </h4>
+    </div>
+
+  </div>
+
+<!-- render each tea, ng-repeat -->
+  <div class="row">
+
+  <div class="tea-render" ng-repeat="tea in teas">
+
+    <div class="col-xs-4">
+      <div class="tea-image"><img src="{{ tea.imageUrl}}"></div>
+    </div>
+
+    <div class="col-xs-8">
+    <div class="tea-characteristics">
+
+      <h3>{{ tea.name }}</h3>
+
+      <p><strong>Price: </strong>{{ tea.price | currency}}</p>
+      <p><strong>Caffeine Scale: </strong>{{ tea.caffeineScale}}</p>
+      <p><strong>Ingredients: </strong>{{ tea.ingredients}}</p>
+      <p><strong>Rating: </strong>{{ tea.rating}}</p>
+      <p><strong>In Stock?: </strong>{{ tea.inStock}}</p>
+      <p><strong>Categories: </strong>
+        <ul>
+          <li>{{ tea.categories[0]}}</li>
+          <li>{{ tea.categories[1]}}</li>
+        </ul>
+      </p>
+
+    </div>
+
+
+    </div>
+
+    </div>
+
+    </div>
+
+
+
+  </div>

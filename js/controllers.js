@@ -89,3 +89,11 @@ app.controller('SingleContactController', ['$scope', '$routeParams', '$http', 'C
 }]);
 
 
+//shopping main controller
+app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, TeaList){
+
+  $scope.teas = TeaList.teaList;
+
+
+}]);
+
