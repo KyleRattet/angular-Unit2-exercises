@@ -20,6 +20,10 @@ a {
   color: black;
 }
 
+.nav-tabs {
+  border: none;
+}
+
 .tea-title {
   color: #FF0000;
   font-style: italic;
@@ -31,6 +35,7 @@ a {
 
 #checkout {
   float: right;
+  color: white;
 }
 /*.border {
   border: solid thin gray;
@@ -43,6 +48,10 @@ a {
 #quantity {
   float:right;
 
+}
+
+#order-total {
+  float:right;
 }
 
 .header {

@@ -94,17 +94,33 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
 
   $scope.teas = TeaList.teaList;
   $scope.cart = TeaList.cart;
+  $scope.bag = "Empty!";
+  $scope.quantity = 0;
 
-  $scope.addToCart = function (quantity, price) {
-    var quantity = this.quantity;
-    console.log(quantity);
-    var price = +this.tea.price/100;
-    console.log(price);
-    var subtotal = quantity * price;
-    console.log(subtotal);
-    $scope.cart += subtotal
-    console.log($scope.cart)
+
+  $scope.addToCart = function () {
+
+    var addedTea = function(tea, quantity) {
+        this.tea = tea;
+        this.quantity = quantity;
+    }
+
+    $scope.cart.push(addedTea);
+    console.log(addedTea);
+    console.log($scope.cart);
+    // var quantity = this.quantity;
+    // console.log(quantity);
+    // $scope.quantity += +quantity;
+    // $scope.bag = $scope.quantity;
+    // var price = +this.tea.price/100;
+    // console.log(price);
+    // var subtotal = quantity * price;
+    // console.log(subtotal);
+    // $scope.cart += subtotal;
+    // $scope.quantity = 0;
+
   }
+
 
 
 

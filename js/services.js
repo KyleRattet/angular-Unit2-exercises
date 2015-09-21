@@ -197,7 +197,9 @@ app.factory('TeaList', function() {
     }
   ];
 
-  TeaList.cart = 0;
+  TeaList.cart = [];
+
+
   return TeaList;
 });
 

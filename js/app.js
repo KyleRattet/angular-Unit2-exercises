@@ -35,6 +35,10 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'partials/shopMain.html',
         controller: 'MainShoppingController'
       })
+       .when('/shoppingCart', {
+        templateUrl: 'partials/shopBag.html',
+        controller: 'MainShoppingController'
+      })
 
 }]);
 
