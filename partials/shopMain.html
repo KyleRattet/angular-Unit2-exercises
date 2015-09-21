@@ -5,14 +5,14 @@
 <div class="main-container">
 
 <!-- top row for rendering each tea -->
-  <div class="row">
+  <div class="row header">
 
-    <div class="col-xs-4">
+    <div class="col-xs-4 header1">
       <h4>Tea</h4>
     </div>
 
     <div class="col-xs-8">
-      <h4>Information<span id="sort-by-price">Sort By Price:<select class="form-control">
+      <h4>Information<span class="border" id="sort-by-price">Sort By Price:<select class="form-inline">
           <option></option>
           <option value='high'>High</option>
           <option value='low'>Low</option>
@@ -23,18 +23,29 @@
   </div>
 
 <!-- render each tea, ng-repeat -->
+  <div id="tea-render" ng-repeat="tea in teas">
+
   <div class="row">
 
-  <div class="tea-render" ng-repeat="tea in teas">
 
-    <div class="col-xs-4">
+    <div class="col-xs-4 column1">
       <div class="tea-image"><img src="{{ tea.imageUrl}}"></div>
     </div>
 
-    <div class="col-xs-8">
+    <div class="col-xs-8 column2">
     <div class="tea-characteristics">
 
-      <h3>{{ tea.name }}</h3>
+      <h3>{{ tea.name }}<span id="quantity">Quantity: <select class="form-inline">
+          <option></option>
+          <option value='1'>1</option>
+          <option value='2'>2</option>
+          <option value='3'>3</option>
+          <option value='4'>4</option>
+          <option value='5'>5</option>
+          <option value='6'>6</option>
+          <option value='7'>7</option>
+          <option value='8'>8</option>
+        </select> <button class="btn btn-warning" id="add-to-bag">Add to Bag</button></span></h3>
 
       <p><strong>Price: </strong>{{ tea.price | currency}}</p>
       <p><strong>Caffeine Scale: </strong>{{ tea.caffeineScale}}</p>

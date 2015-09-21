@@ -16,14 +16,50 @@
   float: right;
 }
 
-.main-controller {
-  border: solid thin gray;
-  background-color: red;
-}
-
-/*.tea-render {
+/*.border {
   border: solid thin gray;
 }*/
+.main-container {
+  border: solid thin gray;
+  padding: 15px;
+}
+
+#quantity {
+  float:right;
+
+}
+
+.header {
+  border-bottom: solid thin gray;
+  height: 50px;
+  max-width: 1140px;
+}
+
+.header1 {
+  border-right: solid thin gray;
+  height: 50px;
+}
+
+
+#tea-render {
+  border-bottom: solid thin gray;
+  height: 310px;
+}
+
+.column1 {
+  border-right: solid thin gray;
+  height: 310px
+}
+
+.column2 {
+  height: 310px
+}
+
+#add-to-bag {
+  color: white;
+  font-size: 12px;
+}
+
 /*
 .tea-image {
   border: solid thin gray;
