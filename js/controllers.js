@@ -96,6 +96,7 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
   $scope.cart = TeaList.cart;
   $scope.bag = "Empty!";
   $scope.quantity = 0;
+  var totalQuantity = 0;
 
 
   $scope.addToCart = function () {
@@ -105,19 +106,15 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
         this.quantity = quantity;
     }
 
-    $scope.cart.push(addedTea);
-    console.log(addedTea);
+    var quantity = this.quantity;
+
+    var newTea = new addedTea(this.tea, quantity)
+
+    $scope.cart.push(newTea);
     console.log($scope.cart);
-    // var quantity = this.quantity;
-    // console.log(quantity);
-    // $scope.quantity += +quantity;
-    // $scope.bag = $scope.quantity;
-    // var price = +this.tea.price/100;
-    // console.log(price);
-    // var subtotal = quantity * price;
-    // console.log(subtotal);
-    // $scope.cart += subtotal;
-    // $scope.quantity = 0;
+
+    totalQuantity += +quantity;
+    $scope.bag = +totalQuantity;
 
   }
 

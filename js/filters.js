@@ -13,8 +13,3 @@ app.filter('price', function () {
       return input/100;
   };
 });
-
-
-
-
-

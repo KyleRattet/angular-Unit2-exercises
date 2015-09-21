@@ -16,8 +16,6 @@
 
 <div class="row sort">
 
-<p>Cart Subtotal Test: {{ cart | currency }}</p>
-
    <p><span id="sort-by-category">Sort By Category:
         <select ng-model="category" class="form-inline">
           <option></option>
@@ -31,7 +29,7 @@
         </select></span>
         <label for="search">Search by name:</label>
         <input type="text" class="form-inline" ng-model="searchText">
-        <button id="checkout" class="btn btn-danger"><a id="checkout" href="/#/shoppingCart"><strong>Checkout</strong> | Bag: {{ bag }}</a></button>
+        <button id="checkout" class="btn btn-danger"><a id="checkout" ng-click="cartTotal()" href="/#/shoppingCart"><strong>Checkout</strong> | Bag: {{ bag }}</a></button>
 
     </p>
 
