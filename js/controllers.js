@@ -93,6 +93,21 @@ app.controller('SingleContactController', ['$scope', '$routeParams', '$http', 'C
 app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, TeaList){
 
   $scope.teas = TeaList.teaList;
+  $scope.cart = TeaList.cart;
+
+  $scope.addToCart = function (quantity, price) {
+    var quantity = this.quantity;
+    console.log(quantity);
+    var price = +this.tea.price/100;
+    console.log(price);
+    var subtotal = quantity * price;
+    console.log(subtotal);
+    $scope.cart += subtotal
+    console.log($scope.cart)
+  }
+
+
+
 
 
 }]);

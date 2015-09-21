@@ -1,6 +1,34 @@
+
+
 <h1 class="tea-title">Welcome to MEAN Tea!</h1>
 
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav nav-tabs">
+          <li ><a href="/#/shop">Home</a></li>
+          <li ><a href="/#/about">About</a></li>
+          <li ><a href="/#/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 
+<div class="row sort">
+
+   <p><span id="sort-by-category">Sort By Category:
+        <select class="form-inline">
+          <option></option>
+          <option value='high'>High</option>
+          <option value='low'>Low</option>
+        </select></span>
+        <label for="search">Search by name:</label>
+        <input type="text" class="form-inline" ng-model="searchText">
+        <button id="checkout" class="btn btn-danger"><strong>Checkout</strong> | Bag: Empty!</button>
+
+    </p>
+
+</div>
 
 <div class="main-container">
 
@@ -12,7 +40,7 @@
     </div>
 
     <div class="col-xs-8">
-      <h4>Information<span class="border" id="sort-by-price">Sort By Price:<select class="form-inline">
+      <h4>Information<span class="border" id="sort-by-price">Sort By Price: <select class="form-inline">
           <option></option>
           <option value='high'>High</option>
           <option value='low'>Low</option>
@@ -23,7 +51,7 @@
   </div>
 
 <!-- render each tea, ng-repeat -->
-  <div id="tea-render" ng-repeat="tea in teas">
+  <div id="tea-render" ng-repeat="tea in teas | filter: searchText">
 
   <div class="row">
 
@@ -35,7 +63,7 @@
     <div class="col-xs-8 column2">
     <div class="tea-characteristics">
 
-      <h3>{{ tea.name }}<span id="quantity">Quantity: <select class="form-inline">
+      <h3>{{ tea.name }}<span id="quantity">Quantity: <select class="form-inline" ng-model="quantity">
           <option></option>
           <option value='1'>1</option>
           <option value='2'>2</option>
@@ -45,9 +73,9 @@
           <option value='6'>6</option>
           <option value='7'>7</option>
           <option value='8'>8</option>
-        </select> <button class="btn btn-warning" id="add-to-bag">Add to Bag</button></span></h3>
+        </select> <button class="btn btn-warning" id="add-to-bag" ng-click="addToCart(quantity, tea.price)">Add to Bag</button></span></h3>
 
-      <p><strong>Price: </strong>{{ tea.price | currency}}</p>
+      <p><strong>Price: </strong>{{ tea.price | price | currency }}</p>
       <p><strong>Caffeine Scale: </strong>{{ tea.caffeineScale}}</p>
       <p><strong>Ingredients: </strong>{{ tea.ingredients}}</p>
       <p><strong>Rating: </strong>{{ tea.rating}}</p>
