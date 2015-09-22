@@ -106,18 +106,10 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
         this.quantity = quantity;
     }
 
-
     var quantity = this.quantity;
-
-
-
-
-
     var newTea = new addedTea(this.tea, quantity)
 
     $scope.cart.push(newTea);
-    // console.log($scope.cart);
-
     totalQuantity += +quantity;
     $scope.bag = +totalQuantity;
 
@@ -136,22 +128,19 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
      grandTotal = parseFloat(grandTotal) + parseFloat(subtotal);
     }
     $scope.grandTotal = grandTotal;
-
-    console.log($scope.grandTotal)
-
-    // $scope.grandTotal = TeaList.grandTotal;
-    // var totalCart = 0;
-
-    // for (var i = 0; i < $scope.cart.length; i++) {
-    //   var subTotal = $scope.cart[i].tea.price * $scope.cart[i].quantity;
-    //   totalCart += subTotal;
-    // };
-
-    // return $scope.grandTotal;
-    // console.log(totalCart)
-
   }
 
+    $scope.buttonLable = "Edit";
+    //edit quantity in bag
+  $scope.edit = function () {
+    $scope.teaQuantity = true;
+    $scope.editTea = true;
+    $scope.editQuanity = true;
+    $scope.saveQuanity = true;
+    $scope.buttonLable = "Save";
+    }
+
+    //
 
 
 

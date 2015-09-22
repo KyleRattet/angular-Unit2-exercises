@@ -1,6 +1,6 @@
 <!-- main shopping page -->
 
-<div ng-hide="mainShoppingPage" class="main-page-container">
+
 
 <h1 class="tea-title">Welcome to MEAN Tea!</h1>
 
@@ -16,6 +16,7 @@
     </div>
   </nav>
 
+<div ng-hide="mainShoppingPage" class="main-page-container">
 <div class="row sort">
 
    <p><span id="sort-by-category">Sort By Category:
@@ -114,35 +115,63 @@
 
 <div ng-show="shoppingCart" class="shoping-bag-container">
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav nav-tabs">
-          <li ><a href="/#/shop">Home</a></li>
-          <li ><a href="/#/about">About</a></li>
-          <li ><a href="/#/contact">Contact</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
 
 
 <div class="row header">
 
-  <h4>
-    <span id="shopping-bag">My Shopping Bag</span><span id="order-total">Order Total: {{ grandTotal }}</span>
-  </h4>
-
-
-
-    <p>Price {{cart[0].tea.price | price }}</p>
-    <p>Quantity{{cart[0].quantity}}</p>
-    <p>Total : {{cart[0].tea.price | price }}*{{cart[0].quantity}}</p>
-
+  <h3>
+    <span id="shopping-bag">My Shopping Bag</span><span id="order-total">Order Total: {{ grandTotal | price | currency}}</span>
+  </h3>
 
 </div>
 
+<div class="row">
+
+  <div class="col-xs-6">
+    <p>Product</p>
+  </div>
+
+  <div class="col-xs-1">
+    <p>Quantity</p>
+  </div>
+
+  <div class="col-xs-1">
+    <p>Sub-total</p>
+  </div>
+
+</div>
+
+<!-- render each tea from the cart -->
+
+<div class="row" ng-repeat="tea in cart">
+
+  <div class="col-xs-6">
+    <h4>{{tea.tea.name}}</h4>
+    <img src="{{ tea.tea.imageUrl}}">
+    <p><strong>Caffeine Scale: </strong>{{tea.tea.caffeineScale}}</p>
+    <p><strong>Ingredients: </strong>{{tea.tea.ingredients}}</p>
+    <p><strong>Rating: </strong>{{tea.tea.rating}}</p>
+  </div>
+
+  <div class="col-xs-1">
+    <p ng-hide="teaQuantity">{{ tea.quantity }}</p>
+    <input size="4" type="text" ng-show="editTea" ng-model="tea.quantity">
+  </div>
+
+  <div class="col-xs-1">
+    <p>{{ tea.quantity * tea.tea.price | price | currency }}</p>
+
+  </div>
+
+  <div class="col-xs-4">
+    <button ng-hide="editQuantity" type="button" ng-click="edit()" class="btn btn-warning"> {{buttonLable}} </button>
+    <button ng-show="saveQuantity" type="button" ng-click="cartTotal()" class="btn btn-warning"> {{buttonLable}} </button>
+    <button type="button" class="btn btn-danger">Remove</button>
+  </div>
+
+
+</div>
 
 
 
