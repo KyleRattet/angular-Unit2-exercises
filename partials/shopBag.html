@@ -15,8 +15,16 @@
 <div class="row header">
 
   <h4>
-    <span id="shopping-bag">My Shopping Bag</span><span id="order-total">Order Total: {{ cart }}</span>
+    <span id="shopping-bag">My Shopping Bag</span><span id="order-total">Order Total: {{ grandTotal }}</span>
   </h4>
+
+
+
+    <p>Price {{cart[0].tea.price | price }}</p>
+    <p>Quantity{{cart[0].quantity}}</p>
+    <p>Total : {{cart[0].tea.price | price }}*{{cart[0].quantity}}</p>
+
+
 
 
 

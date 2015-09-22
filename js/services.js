@@ -198,6 +198,7 @@ app.factory('TeaList', function() {
   ];
 
   TeaList.cart = [];
+  TeaList.grandTotal = 0;
 
 
   return TeaList;
