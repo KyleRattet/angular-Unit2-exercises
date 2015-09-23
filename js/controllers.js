@@ -64,9 +64,17 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
 
   $scope.addToCart = function () {
 
+    //if quantity isn't selected, default to 1 if button is clicked
+
     var addedTea = function(tea, quantity) {
         this.tea = tea;
         this.quantity = quantity;
+    }
+
+    if (this.quantity === 0) {
+      this.quantity = 1;
+    } else {
+      var quantity = this.quantity;
     }
 
     var quantity = this.quantity;

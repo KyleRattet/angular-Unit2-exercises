@@ -14,7 +14,7 @@
   </nav>
 
 <div ng-hide="mainShoppingPage" class="main-page-container">
-<div class="row sort">
+  <div class="row sort">
 
 
 
@@ -39,7 +39,7 @@
     </div>
 
     <div class="col-xs-8">
-      <h4>Information<span class="border" id="sort-by-price">Sort By Price: <select ng-model="category" class="form-inline">
+      <h4>Information<span class="border" id="sort-by-price">Sort By Price: <select ng-model="price" class="form-inline">
           <option></option>
           <option value='-price'>High</option>
           <option value='price'>Low</option>
@@ -50,7 +50,7 @@
   </div>
 
 <!-- render each tea, ng-repeat -->
-  <div id="tea-render" ng-repeat="tea in teas | filter: searchText | filter: category | orderBy: category">
+  <div id="tea-render" ng-repeat="tea in teas | filter: searchText | filter: category | orderBy: price">
 
   <div class="row">
 
@@ -143,16 +143,19 @@
   </div>
 
   <div class="col-xs-1 tea-info">
+    <br>
     <p ng-hide="teaQuantity">{{ tea.quantity }}</p>
     <input size="4" type="text" ng-show="editTea" ng-model="tea.quantity">
   </div>
 
   <div ng-model="total" class="col-xs-1 tea-info">
+    <br>
     <p>{{ tea.quantity * tea.tea.price | price | currency }}</p>
 
   </div>
 
   <div class="col-xs-4 edit-info">
+  <br>
     <button ng-hide="editQuantity" type="button" ng-click="edit(); cartTotal()" class="btn btn-warning"> {{buttonLable}} </button>
   <!--   <button ng-show="saveQuantity" type="button" ng-click="save()" class="btn btn-warning"> {{buttonLable}} </button> -->
     <button type="button" class="btn btn-danger" ng-click="remove(); cartTotal()">Remove</button>
