@@ -1,20 +1,3 @@
-//implicit notation
-// var app = angular.module('myApp', ['ngRoute']);
-
-// app.config(function($routeProvider) {
-//     $routeProvider
-//       .when('/movies', {
-//         templateUrl: 'partials/movies.html',
-//         controller: 'MovieController'
-//       })
-//       .when('/contacts', {
-//         templateUrl: 'partials/contacts.html',
-//         controller: 'ContactController'
-//       })
-// });
-
-//inline array notation
-
 var app = angular.module('myApp', ['ngRoute']);
 
 app.config(['$routeProvider', function($routeProvider) {
@@ -35,8 +18,12 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'partials/shopMain.html',
         controller: 'MainShoppingController'
       })
-       .when('/shoppingCart', {
-        templateUrl: 'partials/shopBag.html',
+       .when('/shopabout', {
+        templateUrl: 'partials/shopabout.html',
+        controller: 'MainShoppingController'
+      })
+        .when('/shopcontact', {
+        templateUrl: 'partials/shopcontact.html',
         controller: 'MainShoppingController'
       })
 

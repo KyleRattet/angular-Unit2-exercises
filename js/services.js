@@ -197,7 +197,9 @@ app.factory('TeaList', function() {
     }
   ];
 
+
   TeaList.cart = [];
+  TeaList.categories = [];
   TeaList.grandTotal = 0;
 
 

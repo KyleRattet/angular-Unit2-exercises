@@ -1,7 +1,4 @@
 <!-- main shopping page -->
-
-
-
 <h1 class="tea-title">Welcome to MEAN Tea!</h1>
 
   <nav class="navbar navbar-default">
@@ -9,8 +6,8 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav nav-tabs">
           <li ><a href="/#/shop">Home</a></li>
-          <li ><a href="/#/about">About</a></li>
-          <li ><a href="/#/contact">Contact</a></li>
+          <li ><a href="/#/shopabout">About</a></li>
+          <li ><a href="/#/shopcontact">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -19,22 +16,15 @@
 <div ng-hide="mainShoppingPage" class="main-page-container">
 <div class="row sort">
 
+
+
    <p><span id="sort-by-category">Sort By Category:
-        <select ng-model="category" class="form-inline">
-          <option></option>
-          <option value='name'>Name</option>
-          <option value='ingredients'>Ingredients</option>
-          <option value='caffeineScale'>Caffeine Scale</option>
-          <option value='price'>Price</option>
-          <option value='inStock'>In Stock</option>
-          <option value='rating'>Rating</option>
-          <option value='categories'>Categories</option>
+        <select ng-model="category">
+          <option ng-repeat="category in categories">{{ category }}</option>
         </select></span>
         <label for="search">Search by name:</label>
         <input type="text" class="form-inline" ng-model="searchText">
         <button id="checkout" class="btn btn-danger" id="checkout" ng-click="cartTotal()"><strong>Checkout</strong> | Bag: {{ bag }}</button>
-      <!--   <button id="checkout" class="btn btn-danger"><a id="checkout" ng-click="cartTotal(); shopping-cart = !shopping-cart" href="/#/shoppingCart"><strong>Checkout</strong> | Bag: {{ bag }}</a></button> -->
-
     </p>
 
 </div>
@@ -60,11 +50,9 @@
   </div>
 
 <!-- render each tea, ng-repeat -->
-  <div id="tea-render" ng-repeat="tea in teas | filter: searchText | orderBy: category">
+  <div id="tea-render" ng-repeat="tea in teas | filter: searchText | filter: category | orderBy: category">
 
   <div class="row">
-
-
 
     <div class="col-xs-4 column1">
       <div class="tea-image"><img src="{{ tea.imageUrl}}"></div>

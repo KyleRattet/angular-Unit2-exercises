@@ -1,40 +1,3 @@
-//implicit notation
-
-// app.controller('myController', function($scope) {
-//   $scope.greeting = "Hello-World!";
-// });
-
-// app.controller('MovieController', function($scope, $http) {
-
-
-//   $scope.getMovies = function () {
-//     var movie =
-//   $http.get('http://www.omdbapi.com/?s='+$scope.movieQuery+'&r=json').then(function(data){
-//     $scope.moviesData = data.data.Search;
-//   });
-//   };
-
-//    $scope.showMovie = function () {
-//     $scope.resultsDiv = false;
-//     $scope.singleMovie = true;
-//     $http.get('http://www.omdbapi.com/?i='+ this.movie.imdbID+'&plot=full&r=json').success(function(data){
-//     $scope.movieData = data;
-//   });
-//   };
-
-// });
-
-// app.controller('ContactController', ["$scope", "ContactList", function($scope, ContactList){
-//   $scope.greeting = "Hello-World!";
-//    $scope.contactData = ContactList.contactList;
-
-//    // TODO: Your ContactList controller code here.
-// }]);
-
-
-//inline array notation
-
-
 app.controller("MovieController", ['$scope', '$http', function($scope, $http) {
 
 
@@ -88,11 +51,11 @@ app.controller('SingleContactController', ['$scope', '$routeParams', '$http', 'C
     ContactList.singleContact($scope, $http, id);
 }]);
 
-
 //shopping main controller
 app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, TeaList){
 
   $scope.teas = TeaList.teaList;
+  console.log($scope.teas);
   $scope.cart = TeaList.cart;
   $scope.bag = "Empty!";
   $scope.quantity = 0;
@@ -143,8 +106,6 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
 
   $scope.remove = function () {
     //find correct tea in the cart to remove
-
-
     for (var i = 0; i < $scope.cart.length; i++) {
       if ($scope.cart[i].tea.id === this.tea.tea.id) {
         $scope.cart.splice(i,1);
@@ -153,10 +114,19 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
 
   }
 
-  $scope.save = function () {
-    console.log('test save button')
-  }
+  //populate categories dropdown
+    $scope.categories = [];
+    populateCategories();
 
+    function populateCategories () {
+      for (var i = 0; i < $scope.teas.length; i++) {
+        for (var k = 0; k < $scope.teas[i].categories.length; k++) {
+          if ($scope.categories.indexOf($scope.teas[i].categories[k]) === -1) {
+            $scope.categories.push($scope.teas[i].categories[k]);
+          }
+        }
+      }
+    };
 
 }]);
 
