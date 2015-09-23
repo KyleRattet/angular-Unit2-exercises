@@ -65,6 +65,10 @@ a {
   height: 50px;
 }
 
+.header2 {
+  border-bottom: solid thin gray;
+  max-width: 950px;
+}
 
 #tea-render {
   border-bottom: solid thin gray;
@@ -78,6 +82,33 @@ a {
 
 .column2 {
   height: 310px
+}
+
+.column3 {
+    border-right: solid thin gray;
+    border-bottom: solid thin gray;
+    border-top: solid thin gray;
+    height: 30px;
+}
+
+.column4 {
+    border: solid thin gray;
+    height: 30px;
+}
+
+.cart-render  {
+    border-right: solid thin gray;
+    border-bottom: solid thin gray;
+    border-left: solid thin gray;
+}
+
+.tea-info {
+    border-right: solid thin gray;
+    height: 375px;
+}
+
+.edit-info {
+    border-top: solid thin gray;
 }
 
 #add-to-bag {

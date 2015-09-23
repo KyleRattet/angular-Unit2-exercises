@@ -128,6 +128,7 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
      grandTotal = parseFloat(grandTotal) + parseFloat(subtotal);
     }
     $scope.grandTotal = grandTotal;
+    console.log("test cart")
   }
 
     $scope.buttonLable = "Edit";
@@ -140,13 +141,10 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
     $scope.buttonLable = "Save";
     }
 
-    //
-  console.log($scope.cart);
-
   $scope.remove = function () {
     //find correct tea in the cart to remove
 
-    console.log($scope.cart);
+
     for (var i = 0; i < $scope.cart.length; i++) {
       if ($scope.cart[i].tea.id === this.tea.tea.id) {
         $scope.cart.splice(i,1);
@@ -155,6 +153,9 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
 
   }
 
+  $scope.save = function () {
+    console.log('test save button')
+  }
 
 
 }]);

@@ -118,7 +118,7 @@
 
 
 
-<div class="row header">
+<div class="row">
 
   <h3>
     <span id="shopping-bag">My Shopping Bag</span><span id="order-total">Order Total: {{ grandTotal | price | currency}}</span>
@@ -128,25 +128,25 @@
 
 <div class="row">
 
-  <div class="col-xs-6">
+  <div class="col-xs-6 column4">
     <p>Product</p>
   </div>
 
-  <div class="col-xs-1">
+  <div class="col-xs-1 column3" >
     <p>Quantity</p>
   </div>
 
-  <div class="col-xs-1">
-    <p>Sub-total</p>
+  <div class="col-xs-1 column3">
+    <p>Subtotal</p>
   </div>
 
 </div>
 
 <!-- render each tea from the cart -->
 
-<div class="row" ng-repeat="tea in cart">
+<div class="row cart-render" ng-repeat="tea in cart">
 
-  <div class="col-xs-6">
+  <div class="col-xs-6 tea-info">
     <h4>{{tea.tea.name}}</h4>
     <img src="{{ tea.tea.imageUrl}}">
     <p><strong>Caffeine Scale: </strong>{{tea.tea.caffeineScale}}</p>
@@ -154,21 +154,22 @@
     <p><strong>Rating: </strong>{{tea.tea.rating}}</p>
   </div>
 
-  <div class="col-xs-1">
+  <div class="col-xs-1 tea-info">
     <p ng-hide="teaQuantity">{{ tea.quantity }}</p>
     <input size="4" type="text" ng-show="editTea" ng-model="tea.quantity">
   </div>
 
-  <div class="col-xs-1">
+  <div ng-model="total" class="col-xs-1 tea-info">
     <p>{{ tea.quantity * tea.tea.price | price | currency }}</p>
 
   </div>
 
-  <div class="col-xs-4">
-    <button ng-hide="editQuantity" type="button" ng-click="edit()" class="btn btn-warning"> {{buttonLable}} </button>
-    <button ng-show="saveQuantity" type="button" ng-click="cartTotal()" class="btn btn-warning"> {{buttonLable}} </button>
-    <button type="button" class="btn btn-danger" ng-click="remove()">Remove</button>
+  <div class="col-xs-4 edit-info">
+    <button ng-hide="editQuantity" type="button" ng-click="edit(); cartTotal()" class="btn btn-warning"> {{buttonLable}} </button>
+  <!--   <button ng-show="saveQuantity" type="button" ng-click="save()" class="btn btn-warning"> {{buttonLable}} </button> -->
+    <button type="button" class="btn btn-danger" ng-click="remove(); cartTotal()">Remove</button>
   </div>
+
 
 
 </div>
