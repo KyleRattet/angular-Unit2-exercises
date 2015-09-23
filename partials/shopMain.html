@@ -80,8 +80,7 @@
       <p><strong>In Stock?: </strong>{{ tea.inStock | inStock }}</p>
       <p><strong>Categories: </strong>
         <ul>
-          <li>{{ tea.categories[0]}}</li>
-          <li>{{ tea.categories[1]}}</li>
+          <li ng-repeat="category in tea.categories">{{ category}}</li>
         </ul>
       </p>
 
