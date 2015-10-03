@@ -29,7 +29,7 @@ app.config(['$routeProvider', function($routeProvider) {
        .when('/carousel', {
         templateUrl: 'partials/carousel.html',
         controller: 'CarouselController'
-      })
+      });
 }]);
 
 

@@ -139,7 +139,7 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
 
 app.controller("CarouselController", ['$scope', '$http', function($scope, $http) {
 
-$scope.test = "carousel controller";
+  $scope.test = "carousel controller";
 
 
 }]);

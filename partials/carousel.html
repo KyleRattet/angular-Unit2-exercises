@@ -1,1 +1,34 @@
-{{test}}
+
+<h1 class='center'> {{title}} </h1>
+
+<p class='center'>{{message}}</p>
+
+<h3 class = 'center'>Carousel of Naughty Cats - You won't believe #7!</h3>
+<div image-carousel>
+<div class ='thumbnail-preview'>
+
+  <img class='little-thumb' src = {{image0}}>
+  <img class='little-thumb' src = {{image1}}>
+  <img class='big-thumb' src = {{image}}>
+  <img class='little-thumb' src = {{image3}}>
+  <img class='little-thumb' src = {{image4}}>
+
+</div>
+<button ng-click='prevPic(image)' class = 'btn left-arrow btn-primary'><span class = 'glyphicon glyphicon-arrow-left'></span> </button>
+<img class='pic-wheel' src = {{image}}>
+<button ng-click='nextPic(image)' class = 'btn right-arrow btn-primary'><span class = 'glyphicon glyphicon-arrow-right'></span> </button>
+
+</div>
+
+function checkNum(num, length){
+  if(num < 0){
+    num = length + num;
+  }
+  else if(num === length){
+    num = 0;
+  }
+  else if(num > length){
+    num = -(length - num);
+  }
+  return num;
+}
