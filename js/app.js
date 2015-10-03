@@ -26,7 +26,10 @@ app.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'partials/shopcontact.html',
         controller: 'MainShoppingController'
       })
-
+       .when('/carousel', {
+        templateUrl: 'partials/carousel.html',
+        controller: 'CarouselController'
+      })
 }]);
 
 

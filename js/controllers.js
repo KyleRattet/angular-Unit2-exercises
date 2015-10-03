@@ -15,7 +15,6 @@ app.controller("MovieController", ['$scope', '$http', function($scope, $http) {
     $scope.movieData = data;
   });
   };
-
 }]);
 
 app.controller('ContactController', ["$scope", "$http","ContactList", function($scope, $http, ContactList){
@@ -28,8 +27,8 @@ app.controller('ContactController', ["$scope", "$http","ContactList", function($
 
   $scope.newContact = function(){
     // console.log("test click");
-      ContactList.addContact($scope, $http);
-      // console.log($scope.contacts)
+      ContactList.addContact($scope, $http)
+            // console.log($scope.contacts)
 
     };
 
@@ -138,3 +137,9 @@ app.controller('MainShoppingController', ['$scope', 'TeaList', function($scope, 
 
 }]);
 
+app.controller("CarouselController", ['$scope', '$http', function($scope, $http) {
+
+$scope.test = "carousel controller";
+
+
+}]);
